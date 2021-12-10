@@ -6,7 +6,11 @@ if ($f) {
     $contents = fread($f, filesize($filename));
    
     $pattern = "/[*]/i";
-    echo preg_match($pattern, $contents); 
+    if (preg_match($pattern, $contents, $match))
+       {for ($x = 0; $x <= count($match); $x++) {
+             echo "$match[$x]\n";
+       }
+     }
     fclose($f);
    
 }
